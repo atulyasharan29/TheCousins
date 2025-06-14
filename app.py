@@ -256,6 +256,10 @@ def sign_up():
 
     return render_template('sign_up.html', form=form)
 
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204
+
 if __name__ == '__main__':
     #DEBUG is SET to TRUE. CHANGE FOR PROD
     port = int(os.environ.get("PORT", 5000))
