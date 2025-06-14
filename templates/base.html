@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TheCousins</title>
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family:Bradley Hand ITC;
+    }
+
+    body {
+      background: linear-gradient(to right, #0b0c2a, #1b1464); /* very dark blue to dark blue */
+      color: #e0ffe0; /* light green-ish white text */
+    }
+
+    nav {
+      background: linear-gradient(to right, #4b0082, #8a2be2); /* purple to violet */
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    nav h2 {
+      font-size: 28px;
+      background: linear-gradient(to right, lightgreen, green);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav li {
+      font-size: 18px;
+      color: #aaffaa;
+      padding: 10px 18px;
+      background: linear-gradient(to bottom right, #001f3f, #0074D9); /* dark blue to blue */
+      border-radius: 12px;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav li:hover {
+      background: linear-gradient(to bottom right, #39ff14, #00ffcc); /* green + lightgreen */
+      color: #000;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>TheCousins</h2>
+    <ul>
+      <a href="/"><li>Home</li></a>
+      
+      
+      {% if 'user' in session %}
+      
+      {% if session['type']  == 'Admin'%}
+        <a href="/SignUp"><li>Sigh Up a Member</li></a>
+      {% endif %}
+        
+      <a href="/CousinsCorner"><li>Cousins Corner</li></a>
+      <a href="/ATM"> <li>ATM</li></a>
+      <a href="/UPI"> <li>UPI</li></a>
+      <a href="/logout"> <li>Logout</li></a>
+      {% else %}
+      <a href="/login"> <li>Login</li></a>
+      {% endif %}
+    
+ 
+    </ul>
+  </nav>
+  {% block content %}
+  
+  {% endblock %}
+</body>
+</html>
